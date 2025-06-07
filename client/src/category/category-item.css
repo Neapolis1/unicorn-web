@@ -6,15 +6,10 @@
     height: 32px;
 }
 
-.category form {
+.category div {
     justify-content: center;
     font-size: 18px;
 	font-family: 'Ubuntu', sans-serif;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: 1s;
-    display: inline-block;
 }
 
 .category p {

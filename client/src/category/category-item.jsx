@@ -16,7 +16,7 @@ function CategoryItem() {
 
   const [categoryItemFormData, setCategoryItemFormData] = useState();
   const [categoryItemDeleteDialog, setCategoryItemDeleteDialog] = useState();
-  const { state, data } = useContext(CategoryListContext);
+  const { data } = useContext(CategoryListContext);
   const { selectedCategory, setSelectedCategory } = useContext(TaskListContext);
 
   const selectedCategoryObject = data?.itemList?.find(cat => cat.id === selectedCategory);
@@ -36,36 +36,36 @@ function CategoryItem() {
             onClose={() => setCategoryItemDeleteDialog()}
           />
         ) : null}
-        <Container>
-          <form>
+        <Container className="d-flex justify-content-between align-items-center mb-2">
+          <div>
             Category:
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
+              className="ms-1"
             >
-              <option>none</option>
-              {data?.itemList
-                ? data.itemList.map((category) => (
-                    <option key={category.id} value={category.id}>
-                      {category.name}
-                    </option>
-                  ))
-                : null}
+              <option value="none">none</option>
+              {data?.itemList?.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
             </select>
-          </form>
-          <div className="buttons">
+          </div>
+
+          <div className="d-flex align-items-center">
             <Button
-              className="border-0 p-1"
+              className="border-0 p-1 me-1"
               variant="outline-success"
               size="sm"
               onClick={() => setCategoryItemFormData({})}
             >
-              <Icon path={mdiPlus} size={1}/>
+              <Icon path={mdiPlus} size={1} />
             </Button>
             {selectedCategory !== "none" && (
               <>
                 <Button
-                  className="border-0 p-1"
+                  className="border-0 p-1 me-1"
                   variant="outline-primary"
                   size="sm"
                   onClick={() => setCategoryItemFormData(selectedCategoryObject)}

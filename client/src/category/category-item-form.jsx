@@ -9,7 +9,6 @@ import { CategoryListContext } from "./category-list-provider.jsx";
 function CategoryItemForm({ data, onClose }) {
   const { state, handlerMap } = useContext(CategoryListContext);
 
-  console.log("category-item-form - data:", data)
   return (
     <Modal show={true} onHide={onClose}>
       <Form

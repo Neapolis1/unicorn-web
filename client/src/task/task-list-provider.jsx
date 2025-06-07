@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext, useMemo } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import FetchHelper from "../fetch-helper.js";
 
@@ -25,7 +25,6 @@ function TaskListProvider({ children }) {
 
     try {
       const result = await FetchHelper.task.list(dtoIn);
-      console.log("result v task provideru:", result);
 
       setTaskListDto((current) => {
         if (result.ok) {
@@ -35,7 +34,6 @@ function TaskListProvider({ children }) {
         }
       });
     } catch (e) {
-      console.error("Error during fetch:", e);
       setTaskListDto((current) => ({
         ...current,
         state: "error",
@@ -44,11 +42,6 @@ function TaskListProvider({ children }) {
     }
   }
   
-
-  useEffect(() => {
-  console.log("taskListDto se změnil:", taskListDto);
-}, [taskListDto]);
-
   /* eslint-disable */
   useEffect(() => {
     handleLoad();
@@ -136,8 +129,6 @@ function TaskListProvider({ children }) {
     setSelectedCategory,
     handlerMap: { handleLoad, handleCreate, handleUpdate, handleDelete },
   };
-
-  console.log("value:", value)
 
   return (
     <TaskListContext.Provider value={value}>

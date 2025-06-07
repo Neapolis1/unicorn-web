@@ -1,6 +1,5 @@
 import "./task-item.css"
 
-import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 

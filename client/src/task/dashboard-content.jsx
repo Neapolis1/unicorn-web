@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
@@ -12,13 +12,9 @@ import TaskItemForm from "./task-item-form";
 function DashboardContent() {
   const [taskItemFormData, setTaskItemFormData] = useState();
   const [taskItemDeleteDialog, setTaskItemDeleteDialog] = useState();
-  const { taskListDto, selectedCategory, handlerMap } = useContext(TaskListContext);
+  const { taskListDto } = useContext(TaskListContext);
   const { state, data, error } = taskListDto || {};
 
-  useEffect(() => {
-    console.log("taskListDto v dashboardu:", taskListDto)
-  })
-  
   return (
     <Card className="border-0 "  style={{ backgroundColor: "#fff0" }}>
       <Card.Body className="px-0" style={{ position: "relative" }}>

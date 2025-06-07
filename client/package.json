@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.6",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
+    "datepicker": "^0.0.0",
     "mdi": "^2.2.43",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
