@@ -2,6 +2,7 @@ import "./task-item.css"
 
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 import Icon from "@mdi/react";
 import { mdiPencilOutline, mdiClose } from "@mdi/js";
@@ -13,6 +14,7 @@ function TaskItem({
 }) {
   let time = null;
   let day = null;
+  const navigate = useNavigate();
 
   if (item.time) {
     const parsedDate = new Date(item.time);
@@ -52,7 +54,7 @@ function TaskItem({
                 className="border-0 p-1"
                 variant="outline-primary"
                 size="sm"
-                onClick={() => setTaskItemFormData(item)}
+                onClick={() => navigate("/taskItemForm", { state: { item } })}
               >
                 <Icon path={mdiPencilOutline} size={0.8} />
               </Button>

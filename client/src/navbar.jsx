@@ -1,40 +1,17 @@
 import Container from "react-bootstrap/esm/Container";
 import "./navbar.css"
 
-import { useState, useContext } from "react";
-
-import TaskItemForm from "./task/task-item-form";
-import CategoryItem from "./category/category-item";
-
-import { TaskListContext } from "./task/task-list-provider";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
-  const { state } = useContext(TaskListContext);
-  const [taskItemFormData, setTaskItemFormData] = useState();
-
+  const navigate = useNavigate()
   return (
     <>
       <div className="toDoList">
         <Container>
-          <h1>ToDoList</h1>
+          <button onClick={() => navigate("/")}>ToDoList</button>
         </Container>
       </div>
-      <div className="navBar">
-      {!!taskItemFormData ? (
-        <TaskItemForm
-          item={taskItemFormData}
-          onClose={() => setTaskItemFormData()}
-        />
-      ) : null}
-        <Container>
-          <h1>Dasboard</h1>
-          <button
-            disabled={state === "pending"}
-            onClick={() => setTaskItemFormData({})}
-          >Create task</button>
-        </Container>
-      </div>
-      <CategoryItem/>
     </>
   );
 }
