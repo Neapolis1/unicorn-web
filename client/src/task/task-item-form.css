@@ -1,0 +1,41 @@
+
+form label {
+  font-weight: normal;
+  display: block;
+  font-size: 20px;
+  color: white;
+}
+
+form input,
+form select,
+form .form-control {
+  width: 100%;
+  padding: 8px;
+  border: 4px solid #dbe7f3;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+/* Víceřádkové pole - popis */
+form input[name="description"] {
+  height: 120px;
+}
+
+/* Tlačítka */
+form button {
+  margin-top: 16px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.close-button {
+    position: relative;
+    transition: 1s;
+    display: inline;
+    float: right;
+    border: none;
+    margin-top: 6px;
+    background-color: transparent;
+}

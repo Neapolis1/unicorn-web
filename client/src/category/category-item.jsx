@@ -1,5 +1,4 @@
 import "./category-item.css"
-import Container from "react-bootstrap/esm/Container";
 
 import { useContext, useState } from "react";
 import Icon from "@mdi/react";
@@ -36,7 +35,7 @@ function CategoryItem() {
             onClose={() => setCategoryItemDeleteDialog()}
           />
         ) : null}
-        <Container className="d-flex justify-content-between align-items-center mb-2">
+        <div className="d-flex justify-content-between align-items-center mb-2 container">
           <div>
             Category:
             <select
@@ -83,7 +82,7 @@ function CategoryItem() {
               </>
             )}
           </div>
-        </Container>
+        </div>
       </div>
   );
 }

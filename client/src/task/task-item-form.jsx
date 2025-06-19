@@ -1,11 +1,14 @@
+import "./task-item-form.css"
+
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import Container from "react-bootstrap/esm/Container";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Icon from "@mdi/react";
+import { mdiClose } from "@mdi/js";
 
 import { useNavigate } from "react-router-dom";
 import { TaskListContext } from "./task-list-provider.jsx";
@@ -24,11 +27,14 @@ function TaskItemForm({ onClose }) {
   return (
     <>
       <div className="navBar">
-        <Container>
-          <h1>{item?.id ? "Update" : "Add"} task</h1>
-        </Container>
+        <div className="container">
+          <h1>{item?.id ? "Update" : "Create"} Task</h1>
+          <button className="close-button" onClick={() => navigate("/")} >
+            <Icon path={mdiClose} size={1.2} />
+          </button>
+        </div>
       </div>
-      <Container>
+      <div className="container">
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -43,6 +49,7 @@ function TaskItemForm({ onClose }) {
             }
 
             let result;
+            console.log("Form submission result:", result);
             if (item?.id) {
               result = await handlerMap.handleUpdate({
                 id: item.id,
@@ -59,7 +66,7 @@ function TaskItemForm({ onClose }) {
             {state === "error" ? (
               <Alert variant={"danger"}>{error.message}</Alert>
             ) : null}
-            <label>Task name</label> <br/>
+            <label>Task name *</label>
             <input
               type="text"
               name="name"
@@ -67,7 +74,7 @@ function TaskItemForm({ onClose }) {
               disabled={state === "pending"}
               required
             /><br/>
-            <label>Category</label> <br/>
+            <label>Category *</label>
             <select
               type="select"
               name="categoryId"
@@ -85,7 +92,7 @@ function TaskItemForm({ onClose }) {
                   })
                 : null}
             </select> <br/>
-            <label>Time until</label> <br/>
+            <label>Time until</label>
             <DatePicker
               selected={time}
               onChange={(date) => setTime(date)}
@@ -96,7 +103,7 @@ function TaskItemForm({ onClose }) {
               className="form-control"
               name="time"
             /> <br/>
-            <label>Description</label> <br/>
+            <label>Description</label>
             <input
               type="text"
               name="description"
@@ -118,7 +125,7 @@ function TaskItemForm({ onClose }) {
               Save Changes
             </Button>
         </form>
-      </Container>
+      </div>
     </>
   );
 }

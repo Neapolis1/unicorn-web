@@ -1,4 +1,3 @@
-import Container from "react-bootstrap/esm/Container";
 import "./navbar.css"
 
 import { useNavigate } from "react-router-dom";
@@ -8,9 +7,9 @@ function NavBar() {
   return (
     <>
       <div className="toDoList">
-        <Container>
+        <div className="container">
           <button onClick={() => navigate("/")}>ToDoList</button>
-        </Container>
+        </div>
       </div>
     </>
   );

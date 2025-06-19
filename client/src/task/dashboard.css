@@ -17,7 +17,7 @@
     display: inline-block;
 }
 
-.navBar button {
+.button {
     position: relative;
     transition: 1s;
     display: inline;

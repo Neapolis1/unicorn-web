@@ -2,7 +2,6 @@ import "./dashboard.css"
 
 import { useNavigate } from "react-router-dom";
 
-import Container from "react-bootstrap/esm/Container";
 import CategoryItem from "../category/category-item";
 import DashboardContent from "./dashboard-content";
 
@@ -11,15 +10,15 @@ function Dashboard() {
   return (
     <>
       <div className="navBar">
-        <Container>
+        <div className="container">
           <h1>Dasboard</h1>
-          <button onClick={() => navigate("taskItemForm")} >Create task</button>
-        </Container>
+          <button className="button" onClick={() => navigate("taskItemForm")} >Create task</button>
+        </div>
       </div>
       <CategoryItem/>
-      <Container>
+      <div className="container">
         <DashboardContent />
-      </Container>
+      </div>
     </>
   );
 }
